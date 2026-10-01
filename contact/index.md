@@ -3,9 +3,8 @@ layout: default
 title: Contact
 section: contact
 ---
-
 # Contact
 
-[Email](mailto:hello@example.com)
+[Email](drmilmaconnect@gmail.com)
 
-[Instagram](#)
+[Instagram](https://www.instagram.com/garishdresscorp/)
