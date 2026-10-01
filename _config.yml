@@ -1,6 +1,6 @@
 title: Garish Dress
-url: "https://dcriekman.github.io"
-baseurl: "/garish-dress"
+url: "https://garishdress.com"
+baseurl: ""
 
 markdown: kramdown
 permalink: /updates/:year/:month/:title/
