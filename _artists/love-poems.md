@@ -5,6 +5,4 @@ title: Love Poems
 
 ![](/media/images/250220portrait.jpg)
 
-![](/media/images/250220portrait.jpg)
-
 photo nathan d and drew r
