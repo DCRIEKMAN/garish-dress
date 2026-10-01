@@ -5,5 +5,5 @@ title: Ritchot Textiles
   
 
 
-![](/garish-dress/media/images/stoop-photo-editing05x.jpg)
+![](/media/images/stoop-photo-editing05x.jpg)
 
