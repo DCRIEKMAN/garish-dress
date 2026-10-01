@@ -1,0 +1,238 @@
+media:
+  - name: images
+    label: Images
+    input: media/images
+    output: /garish-dress/media/images
+    rename: safe
+    categories: [image]
+
+settings:
+  commit:
+    identity: user
+
+content:
+  - name: updates
+    label: Updates
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename:
+      template: "{date}-{primary}.md"
+      field: false
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: body
+        label: Body
+        type: rich-text
+        required: true
+        options:
+          media: images
+          switcher: true
+
+  - name: releases
+    label: Releases
+    type: collection
+    path: _releases
+    format: yaml-frontmatter
+    exclude: [".gitkeep"]
+    filename:
+      template: "{catalog}-{title}.md"
+      field: false
+    view:
+      fields: [catalog, artist, title, date]
+      primary: catalog
+      sort: [date, catalog]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: catalog
+        label: Catalogue number
+        type: string
+        required: true
+        pattern:
+          regex: "^DRMILMA-[0-9]{3}$"
+          message: "Use the format DRMILMA-001"
+      - name: artist
+        label: Artist
+        type: string
+        required: true
+      - name: title
+        label: Release title
+        type: string
+        required: true
+      - name: date
+        label: Release date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: artwork
+        label: Artwork
+        type: image
+        options:
+          media: images
+      - name: audio_embed
+        label: Audio embed code
+        type: code
+        options:
+          format: html
+      - name: body
+        label: Credits / notes
+        type: rich-text
+        options:
+          media: images
+          switcher: true
+
+  - name: artists
+    label: Artists
+    type: collection
+    path: _artists
+    format: yaml-frontmatter
+    exclude: [".gitkeep"]
+    filename:
+      template: "{primary}.md"
+      field: false
+    view:
+      fields: [title]
+      primary: title
+      sort: [title]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: Artist name
+        type: string
+        required: true
+      - name: body
+        label: Artist page
+        type: rich-text
+        options:
+          media: images
+          switcher: true
+
+  - name: videos
+    label: Video
+    type: collection
+    path: _videos
+    format: yaml-frontmatter
+    exclude: [".gitkeep"]
+    filename:
+      template: "{date}-{primary}.md"
+      field: false
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: embed
+        label: Video embed code
+        type: code
+        options:
+          format: html
+      - name: body
+        label: Notes
+        type: rich-text
+        options:
+          media: images
+          switcher: true
+
+  - name: tour
+    label: Tour
+    type: file
+    path: _data/tour.yml
+    format: yaml
+    operations:
+      delete: false
+    fields:
+      - name: embed
+        label: Seated embed code
+        type: code
+        options:
+          format: html
+
+  - name: about
+    label: About
+    type: file
+    path: about/index.md
+    format: yaml-frontmatter
+    operations:
+      delete: false
+      rename: false
+    fields:
+      - name: layout
+        type: string
+        hidden: true
+        default: default
+      - name: title
+        type: string
+        hidden: true
+        default: About
+      - name: section
+        type: string
+        hidden: true
+        default: about
+      - name: body
+        label: About text
+        type: rich-text
+        options:
+          media: images
+          switcher: true
+
+  - name: contact
+    label: Contact
+    type: file
+    path: contact/index.md
+    format: yaml-frontmatter
+    operations:
+      delete: false
+      rename: false
+    fields:
+      - name: layout
+        type: string
+        hidden: true
+        default: default
+      - name: title
+        type: string
+        hidden: true
+        default: Contact
+      - name: section
+        type: string
+        hidden: true
+        default: contact
+      - name: body
+        label: Contact content
+        type: rich-text
+        options:
+          switcher: true
+          media: false
