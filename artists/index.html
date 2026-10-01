@@ -1,0 +1,17 @@
+---
+layout: default
+title: Artists
+section: artists
+---
+<h1>Artists</h1>
+
+{% assign artists = site.artists | sort: "title" %}
+{% if artists.size > 0 %}
+  <ul class="artist-list">
+    {% for artist in artists %}
+      <li><a href="{{ artist.url | relative_url }}">{{ artist.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No artists listed yet.</p>
+{% endif %}

@@ -1,0 +1,20 @@
+---
+layout: default
+title: Video
+section: video
+---
+<h1>Video</h1>
+
+{% assign videos = site.videos | sort: "date" | reverse %}
+{% if videos.size > 0 %}
+  <ul class="video-list">
+    {% for item in videos %}
+      <li>
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% if item.date %}<br><span class="date">{{ item.date | date: "%Y-%m-%d" }}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No videos yet.</p>
+{% endif %}

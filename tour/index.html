@@ -1,0 +1,12 @@
+---
+layout: default
+title: Tour
+section: tour
+---
+<h1>Tour</h1>
+
+{% if site.data.tour.embed and site.data.tour.embed != "" %}
+  <div class="embed">{{ site.data.tour.embed }}</div>
+{% else %}
+  <p>Tour dates will appear here.</p>
+{% endif %}

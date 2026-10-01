@@ -1,0 +1,23 @@
+---
+layout: default
+title: Releases
+section: releases
+---
+<h1>Releases</h1>
+
+{% assign releases = site.releases | sort: "date" | reverse %}
+{% if releases.size > 0 %}
+  <ul class="release-list">
+    {% for release in releases %}
+      <li>
+        <a href="{{ release.url | relative_url }}"><strong>{{ release.catalog }}</strong></a><br>
+        {% if release.artist %}{{ release.artist }}{% endif %}
+        {% if release.artist and release.title %} - {% endif %}
+        {% if release.title %}{{ release.title }}{% endif %}
+        {% if release.date %}<br><span class="date">{{ release.date | date: "%Y-%m-%d" }}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No releases yet.</p>
+{% endif %}

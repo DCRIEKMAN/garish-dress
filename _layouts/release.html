@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article>
+  <h1>{{ page.catalog }}</h1>
+
+  <p>
+    {% if page.artist %}{{ page.artist }}{% endif %}
+    {% if page.artist and page.title %} - {% endif %}
+    {% if page.title %}{{ page.title }}{% endif %}
+    {% if page.date %}<br>{{ page.date | date: "%B %-d, %Y" }}{% endif %}
+  </p>
+
+  {% if page.artwork %}
+    <img class="release-artwork" src="{{ page.artwork }}" alt="{{ page.artist }} - {{ page.title }}">
+  {% endif %}
+
+  {% if page.audio_embed %}
+    <div class="embed">{{ page.audio_embed }}</div>
+  {% endif %}
+
+  <div class="release-body">
+    {{ content }}
+  </div>
+</article>

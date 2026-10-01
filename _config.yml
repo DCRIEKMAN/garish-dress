@@ -1,0 +1,43 @@
+title: Garish Dress
+url: "https://dcriekman.github.io"
+baseurl: "/garish-dress"
+
+markdown: kramdown
+permalink: /updates/:year/:month/:title/
+
+collections:
+  releases:
+    output: true
+    permalink: /releases/:name/
+  artists:
+    output: true
+    permalink: /artists/:name/
+  videos:
+    output: true
+    permalink: /video/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      section: updates
+  - scope:
+      path: ""
+      type: releases
+    values:
+      layout: release
+      section: releases
+  - scope:
+      path: ""
+      type: artists
+    values:
+      layout: artist
+      section: artists
+  - scope:
+      path: ""
+      type: videos
+    values:
+      layout: video
+      section: video

@@ -1,0 +1,32 @@
+---
+layout: default
+title: Updates
+section: updates
+---
+<h1>Updates</h1>
+
+{% assign previous_month = "" %}
+{% for post in site.posts %}
+  {% assign this_month = post.date | date: "%Y-%m" %}
+
+  {% if this_month != previous_month %}
+    {% unless previous_month == "" %}
+      </ul>
+    {% endunless %}
+
+    <h3 id="{{ this_month }}">{{ post.date | date: "%m/%Y" }}</h3>
+    <ul class="update-list">
+    {% assign previous_month = this_month %}
+  {% endif %}
+
+  <li>
+    <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
+
+  {% if forloop.last %}
+    </ul>
+  {% endif %}
+{% else %}
+  <p>No updates yet.</p>
+{% endfor %}

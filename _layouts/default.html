@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}Garish Dress</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <strong><a class="brand" href="{{ '/' | relative_url }}">Garish Dress - WPG Manitoba - DRMILMA</a></strong>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Main navigation">
+      <a href="{{ '/updates/' | relative_url }}"{% if page.section == 'updates' %} class="current"{% endif %}>Updates</a>
+
+      {% assign previous_month = "" %}
+      <div class="subnav" aria-label="Updates archive">
+        {% for post in site.posts %}
+          {% assign this_month = post.date | date: "%Y-%m" %}
+          {% if this_month != previous_month %}
+            <a href="{{ '/updates/' | relative_url }}#{{ this_month }}">{{ post.date | date: "%m/%Y" }}</a>
+            {% assign previous_month = this_month %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <a href="{{ '/releases/' | relative_url }}"{% if page.section == 'releases' %} class="current"{% endif %}>Releases</a>
+      <a href="{{ '/artists/' | relative_url }}"{% if page.section == 'artists' %} class="current"{% endif %}>Artists</a>
+      <a href="{{ '/tour/' | relative_url }}"{% if page.section == 'tour' %} class="current"{% endif %}>Tour</a>
+      <a href="{{ '/video/' | relative_url }}"{% if page.section == 'video' %} class="current"{% endif %}>Video</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.section == 'about' %} class="current"{% endif %}>About</a>
+      <a href="{{ '/contact/' | relative_url }}"{% if page.section == 'contact' %} class="current"{% endif %}>Contact</a>
+    </nav>
+
+    <main class="content">
+      {{ content }}
+    </main>
+  </div>
+</body>
+</html>
