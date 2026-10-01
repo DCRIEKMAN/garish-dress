@@ -3,7 +3,7 @@ catalog: DRMILMA-001
 artist: Ritchot Textiles
 title: i
 date: 2024-10-11
-artwork: /garish-dress/media/images/ritchot-textilessquarefin.jpg
+artwork: /media/images/ritchot-textilessquarefin.jpg
 audio_embed: '<iframe style="border: 0; width: 100%; height: 42px;"
   src="https://bandcamp.com/EmbeddedPlayer/album=2804659017/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/"
   seamless><a href="https://ritchottextiles.bandcamp.com/album/i">i by Ritchot
