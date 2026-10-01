@@ -2,7 +2,7 @@ media:
   - name: images
     label: Images
     input: media/images
-    output: /garish-dress/media/images
+    output: /media/images
     rename: safe
     categories: [image]
 
